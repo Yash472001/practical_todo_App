@@ -5,10 +5,10 @@ export const TodoContext = React.createContext();
 
 const initialState = {
     todos: [
-      { id: 1, todo: 'Flower' },
-      { id: 2, todo: 'Salary'},
-      { id: 3, todo: 'Book'},
-      { id: 4, todo: 'Camera'},
+      { id: 1, todo: 'Reading Books' ,checked:false},
+      { id: 2, todo: 'Listening the podcast',checked:false},
+      { id: 3, todo: 'More actionable',checked:false},
+      { id: 4, todo: 'Start conversation with one person',checked:false}
     ],
   };
 

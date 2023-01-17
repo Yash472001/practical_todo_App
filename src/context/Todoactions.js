@@ -1,6 +1,4 @@
-import { ADD_TODO_ITEM ,REMOVE_TODO_ITEM,REMOVE_TODO_ITEM_ALL} from "./TodoConstants"
-
-
+import { ADD_TODO_ITEM ,REMOVE_TODO_ITEM,CHANGED_CHECKED_VAL} from "./TodoConstants"
 
 export const addTodoItem = (data) => {
     console.log(data);
@@ -10,16 +8,15 @@ export const addTodoItem = (data) => {
     }
 }
 
-export const removeTodoItem = (data) => {
+export const removeTodoItem = () => {
     return {
         type:REMOVE_TODO_ITEM,
-        payload:data
     }
 }
 
-export const removeTodoAllItem = (data) => {
+export const changedCheckedVal = (data) => {
     return {
-        type:REMOVE_TODO_ITEM_ALL,
+        type:CHANGED_CHECKED_VAL,
         payload:data
     }
 }

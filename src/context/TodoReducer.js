@@ -1,27 +1,36 @@
-import { ADD_TODO_ITEM ,REMOVE_TODO_ITEM,REMOVE_TODO_ITEM_ALL} from "./TodoConstants";
+import { ADD_TODO_ITEM ,REMOVE_TODO_ITEM,CHANGED_CHECKED_VAL} from "./TodoConstants";
 
 
 export const TodoReducer = (state,action) => {
     console.log(state);
-    console.log("action : ",action.payload);
+    
     switch (action.type) {
         case ADD_TODO_ITEM:
             return {
                 ...state,
-                todos:[...state.todos,{id:state.todos.length+1,todo:action.payload}]
+                todos:[...state.todos,{id:Date.now(),todo:action.payload,checked:false}]
             };
 
         case REMOVE_TODO_ITEM:
             return {
                 ...state,
                 todos:state.todos.filter(
-                    todos => todos.id !== action.payload
-                )
+                    todos => !todos.checked
+                ),
             };
+
         
-        case REMOVE_TODO_ITEM_ALL:
+        case CHANGED_CHECKED_VAL:
             return {
-                ...state
+                ...state,
+                todos:state.todos.map((val) => {
+                    if(val.id == action.payload){
+                        console.log("val : ",val);
+                        return {...val,checked:!val.checked}
+                    }
+                    return {...val}
+                    
+                })
             };
     
         default:
