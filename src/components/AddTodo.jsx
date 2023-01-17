@@ -10,7 +10,12 @@ const AddTodo = () => {
   
   const handleSubmit = () => {
     let todo = todoRef.current.value;
+    if(todo == ""){
+      alert("INPUT BOX CAN NOT BE EMPTY");
+      return
+    }
     dispatch(addTodoItem(todo))
+    todoRef.current.value = "";
   }
 
   return (
